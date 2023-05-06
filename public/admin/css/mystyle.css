@@ -1,0 +1,16 @@
+.admin_add_movie_title{
+    width: 6.5em;
+};
+.uploadimg{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.imgMovieList{
+
+}
+.imgMovieList img{
+    width: 60px;
+    height: auto;
+}
