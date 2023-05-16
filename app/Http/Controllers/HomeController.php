@@ -21,7 +21,7 @@ class HomeController extends Controller
         $nation = Nation::all();
         $year = Year::all();
         $slider = Movie::inRandomOrder()->latest()->limit(10)->get();
-        $newmovie = Movie::latest()->limit(24)->get();
+        $newmovie = Movie::latest()->limit(4)->get();
         $randommovie = Movie::inRandomOrder()->limit(24)->get();
         return view('user.index', compact('cate', 'nation', 'year', 'slider', 'newmovie', 'randommovie', 'language'));
     }
