@@ -71,6 +71,9 @@ Route::group(['prefix' => 'admin1'], function () {
         Route::get('series', 'MovieController@getadminseries')->name('admin.movie.series');
         Route::get('addSeries', 'MovieController@createSeries')->name('admin.movie.createSeries');
         Route::post('addSeries', 'MovieController@storeSeries')->name('admin.movie.storeSeries');
+        Route::get('deleteSeries/{id}', 'MovieController@destroySeries')->name('admin.movie.deleteSeries');
+        Route::get('editSeries/{id}', 'MovieController@editSeries')->name('admin.movie.editSeries');
+        Route::post('editSeries/{id}', 'MovieController@updateSeries')->name('admin.movie.updateSeries');
     });
 
     //Admin manage user
@@ -108,6 +111,7 @@ Route::group(['prefix' => 'admin1'], function () {
 
     Route::group(['prefix' => 'payment', 'middleware' => 'AdminMiddleware'], function () {
         Route::get('list', 'PaymentController@paymentList')->name('admin.payment.list');
+        Route::get('listSeries', 'PaymentController@paymentListSeries')->name('admin.payment.listSeries');
     });
 
     //Admin manage statistic
@@ -130,7 +134,10 @@ Route::get('about', 'HomeController@about')->name('user.about');
 
 Route::group(['prefix' => 'movie'], function () {
     Route::get('detail/{id}', 'MovieController@detailmovie')->name('user.movie');
+    Route::get('detailSeries/{id}', 'MovieController@detailSeries')->name('user.detailSeries');
+
     Route::get('watch/{id}/{server}', 'MovieController@watchmovie')->name('user.movie.watch');
+    Route::get('watchSeries/{id}/{task}/{server}', 'MovieController@watchSeries')->name('user.movie.watchSeries');
 });
 Route::get('list', 'MovieController@getlist')->name('user.list');
 Route::get('trailer', 'MovieController@gettrailer')->name('user.trailer');
@@ -199,6 +206,7 @@ Route::group(['prefix' => 'wallet', 'middleware' => 'UserMiddleware'], function 
 
 Route::group(['prefix' => 'payment', 'middleware' => 'UserMiddleware'], function () {
     Route::get('buy/{movie_id}', 'PaymentController@buyMovie')->name('user.buyMovie');
+    Route::get('buySeries/{series_id}', 'PaymentController@buySeries')->name('user.buySeries');
 });
 
 ///Reject All
