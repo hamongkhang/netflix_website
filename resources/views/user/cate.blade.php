@@ -27,6 +27,7 @@
                             <h3 class="text-center">Chưa có phim nào trong thể loại này!</h3>
                         @endif
                         @foreach ($movie as $item)
+                        @if ($item->series_id==null)
                         <div class="col-md-2 w3l-movie-gride-agile">
                             <a href="{{route('user.movie',$item->id)}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
                                 class="hvr-shutter-out-horizontal"><img
@@ -76,6 +77,7 @@
                                 </span>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         <div class="clearfix"> </div>
                     </div>

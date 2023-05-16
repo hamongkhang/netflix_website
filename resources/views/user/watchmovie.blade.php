@@ -160,7 +160,7 @@
             <div class="col-md-4">
                 <div>
                     @if (session('username_minmovies'))
-                    <a href="{{ route('user.addCabinet',[session('username_minmovies'),$movie->id]) }}"
+                    <a href=""
                         class="btn btn-warning btn-lg btn-block warningbtn">Thêm vào tủ</a><br>
                     @else
                     <a href="#" data-toggle="modal" data-target="#myModal"
