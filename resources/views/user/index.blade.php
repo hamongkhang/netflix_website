@@ -15,6 +15,7 @@
                 <div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
                     <div class="w3_agile_featured_movies text-center">
                         @foreach ($newmovie as $item)
+                        @if ($item->series_id==null && $item->series_id<2)
                         <div class="col-md-2 w3l-movie-gride-agile float-right">
                             <a href="{{route('user.movie',$item->id)}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}" class="hvr-shutter-out-horizontal"><img  src="{{ asset("/imgUploads/$item->poster_image")}}"title="{{$item->vie_name.' ('.$item->eng_name.')'}}" class="img-responsive" alt=" " />
                                 <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
@@ -59,8 +60,11 @@
                                 </span>
                             </div>
                         </div>
+                        @endif
                         @endforeach
-                        <div class="clearfix"> </div>
+                        <div class="clearfix"> 
+
+                        </div>
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">

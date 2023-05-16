@@ -5,6 +5,7 @@
         <div class="w3_agile_banner_bottom_grid">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 @foreach ($slider as $item)
+                @if ($item->series_id==null)
                 <div class="item">
                     <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
                         <a href="{{route('user.movie',$item->id)}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
@@ -56,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
         </div>

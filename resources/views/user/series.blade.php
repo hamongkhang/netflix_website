@@ -23,45 +23,36 @@
                 </div>
                 <div class="container">
                     <div class="browse-inner">
-                        @foreach ($movie as $item)
-                     
+                        @foreach ($series as $item)
                         <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="{{route('user.movie',$item->id)}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
-                                class="hvr-shutter-out-horizontal"><img
-                                    src="{{ asset("/imgUploads/$item->poster_image")}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
+                            <a href="{{route('user.detailSeries',$item->id)}}" title="{{$item->series_name.' ('.$item->series_name.')'}}"
+                                class="hvr-shutter-out-horizontal"><img style='height:200px'
+                                    src="{{ asset("/imgUploads/$item->poster")}}" title="{{$item->series_name.' ('.$item->series_name.')'}}"
                                     class="img-responsive" alt=" " />
                                 <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                             </a>
                             <div class="mid-1">
                                 <div class="w3l-movie-text">
-                                    <h6><a href="{{route('user.movie',$item->id)}}"
-                                            title="{{$item->vie_name.' ('.$item->eng_name.')'}}">{{$item->vie_name}}</a></h6>
+                                    <h6><a href="{{route('user.detailSeries',$item->id)}}"
+                                            title="{{$item->series_name.' ('.$item->series_name.')'}}"><b>{{$item->series_name}}</b></a></h6>
                                 </div>
                                 <div class="mid-2">
                                     <p>
-                                        @foreach ($year as $item2)
-                                        @if ($item2->id==$item->year_id)
-                                        {{$item2->year}}
-                                        @endif
-                                        @endforeach
+                                        {{$item->year}}
                                     </p>
                                     <div class="block-stars">
                                         <ul class="w3l-ratings">
-                                            <p>{{ $item->time }}</p>
+                                            <p>{{ $item->description }}</p>
                                         </ul>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
                             <div class="ribben">
-                                @foreach ($language as $lang)
-                                @if ($item->language_id==$lang->id)
-                                <a href="{{route('user.movie',$item->id)}}"
-                                    title="{{$item->vie_name.' ('.$item->eng_name.')'}}">
-                                    <p>{{$item->quality.'-'.$lang->language}}</p>
+                                <a href=""
+                                    title="{{$item->number_of_movie.' ('.$item->number_of_movie.')'}}">
+                                    <p>{{$item->number_of_movie}}</p>
                                 </a>
-                                @endif
-                                @endforeach
                             </div>
                             <div class="ribbennew3">
                                 <span

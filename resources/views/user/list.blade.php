@@ -24,8 +24,8 @@
                 <div class="container">
                     <div class="browse-inner">
                         @foreach ($movie as $item)
-                     
-                        <div class="col-md-2 w3l-movie-gride-agile">
+                        @if ($item->series_id==null)
+                        <div class="col-md-3 w3l-movie-gride-agile">
                             <a href="{{route('user.movie',$item->id)}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
                                 class="hvr-shutter-out-horizontal"><img
                                     src="{{ asset("/imgUploads/$item->poster_image")}}" title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
@@ -74,6 +74,7 @@
                                 </span>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         <div class="clearfix"> </div>
                     </div>

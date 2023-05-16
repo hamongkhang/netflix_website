@@ -30,6 +30,31 @@
             @endif
             <h5 class="m-0 font-weight-bold text-primary pb-2">THÔNG TIN PHIM</h5>
             <div class="row">
+            <div class="col-md-4">
+                    <div class="input-group pb-3">
+                            <span class="input-group-text">Có thể điền hoặc không (Optional)</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group pb-3">
+                    <select class="form wide" name="series_id" data-toggle="movie-dropdown" oninvalid="this.setCustomValidity('Có phải bạn có quên chọn gì đó?')" onchange="this.setCustomValidity('')">
+                        <option value="" data-display="Series...">Chưa chọn...</option>
+                        @foreach ($series as $item)
+                        <option value="{{$item->id}}">{{$item->series_name}}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group pb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Tập thứ: </span>
+                        </div>
+                        <input type="number" class="form-control" name="task_number" placeholder="Tập thứ ......">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="input-group pb-3">
                         <div class="input-group-prepend">
@@ -86,7 +111,7 @@
             </div>
             <div class="pb-3">
                 <div class="custom-file">
-                    <input type="file" name="poster" title="Ảnh Poster Phim" class="uploadimg custom-file-input" accept=".jpg, .png, image/jpeg, image/png">
+                    <input type="file" name="poster_image" title="Ảnh Poster Phim" class="uploadimg custom-file-input" accept=".jpg, .png, image/jpeg, image/png">
                     <label class="custom-file-label" class="uploadimg" for="inputGroupFile01">Chọn Poster...</label>
                 </div>
             </div>

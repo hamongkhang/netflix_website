@@ -45,6 +45,7 @@
                             "<b>{{ $searchSort }}</b>"</h3><br>
                         @endif
                         @foreach ($movie as $item)
+                        @if ($item->series_id==null)
                         <div class="col-md-2 w3l-movie-gride-agile">
                             <a href="{{route('user.movie',$item->id)}}"
                                 title="{{$item->vie_name.' ('.$item->eng_name.')'}}"
@@ -87,6 +88,7 @@
                                 @endforeach
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         <div class="clearfix"> </div>
                     </div>
