@@ -30,6 +30,35 @@
             @endif
             <h5 class="m-0 font-weight-bold text-primary pb-2">THÔNG TIN PHIM</h5>
             <div class="row">
+            <div class="col-md-4">
+                    <div class="input-group pb-3">
+                            <span class="input-group-text">Có thể điền hoặc không (Optional)</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group pb-3">
+                    <select class="form wide" name="series_id" data-toggle="movie-dropdown" oninvalid="this.setCustomValidity('Có phải bạn có quên chọn gì đó?')" onchange="this.setCustomValidity('')">
+                        <option value="" data-display="Series...">Chưa chọn...</option>
+                        @foreach ($series as $item)
+                        @if ($movie->series_id==$item->id)
+                        <option selected value="{{$item->id}}">{{$item->series_name}}</option>
+                        @else
+                        <option value="{{$item->id}}">{{$item->series_name}}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group pb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Tập thứ: </span>
+                        </div>
+                        <input type="number" value="{{$movie->task_number}}" class="form-control" name="task_number" placeholder="Tập thứ ......">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="input-group pb-3">
                         <div class="input-group-prepend">
@@ -112,7 +141,7 @@
             </div>
             <div class="row">
                 <div class="col-md-3 pb-3">
-                <img class="img-thumbnail" src="{{ asset("/imgUploads/$item->poster_image")}}" alt="" title="{{asset('storage/app/poster/'.$movie->poster_image)}}">
+                <img class="img-thumbnail" src='{{ asset("/imgUploads/$movie->poster_image") }}' alt="" title="{{asset('storage/app/poster/'.$movie->poster_image)}}">
                 <input type="hidden" name="img11" value="{{$item->img1}}">
                 </div>
                 <div class="col-md-9">

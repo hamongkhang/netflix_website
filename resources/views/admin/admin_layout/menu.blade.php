@@ -109,6 +109,7 @@
                 <h6 class="collapse-header">Danh mục quản lý</h6>
                 <a class="collapse-item" href="{{ route('admin.walletCharge.list') }}"><i class="far fa-file-invoice-dollar text-lg pr-2 ml-1 mr-1"></i>Nạp ví</a>
                 <a class="collapse-item" href="{{ route('admin.payment.list') }}"><i class="fas fa-shopping-basket pr-2 text-lg"></i>Mua phim</a>
+                <a class="collapse-item" href="{{ route('admin.payment.listSeries') }}"><i class="fas fa-shopping-basket pr-2 text-lg"></i>Mua series phim</a>
             </div>
         </div>
     </li>
