@@ -4,30 +4,29 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MovieRequest extends FormRequest
-{
+class MovieRequest extends FormRequest {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
+    * Determine if the user is authorized to make this request.
+    *
+    * @return bool
+    */
+
+    public function authorize() {
         return true;
     }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
+    * Get the validation rules that apply to the request.
+    *
+    * @return array
+    */
+
+    public function rules() {
         return [
             //
             'txtViename'=>'required|unique:movies,vie_name|max:150',
             'txtEngname'=>'required|unique:movies,eng_name|max:150',
-           
+            'poster_image'=>'required',
             'txtInfo'=>'required',
             'txtDirector'=>'required',
             'txtPoint'=>'required',
@@ -38,8 +37,8 @@ class MovieRequest extends FormRequest
             'txtServer1'=>'required'
         ];
     }
-    public function messages()
-    {
+
+    public function messages() {
         # code...
         return [
             'txtViename.required'=>'Bạn vui lòng nhập tên tiếng Việt của phim!',
@@ -48,7 +47,7 @@ class MovieRequest extends FormRequest
             'txtEngname.required'=>'Bạn vui lòng nhập tên tiếng Anh của phim!',
             'txtEngname.unique'=>'Tên phim bị trùng, bạn vui lòng kiểm tra lại!',
             'txtEngname.max'=>'Bạn vui lòng nhập tên phim ít hơn 150 ký tự!',
-            'poster.required'=>'Bạn vui lòng tải lên poster!',
+            'poster_image.required'=>'Bạn vui lòng tải lên poster!',
             'txtDirector.required'=>'Bạn vui lòng nhập tên đạo diễn!',
             'txtInfo.required'=>'Bạn vui lòng nhập nội dung phim!',
             'txtPoint.required'=>'Bạn vui lòng nhập điểm phim!',
